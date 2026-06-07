@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brezzy On The Decks | Executive Hub</title>
     <style>
-        /* Modern Solid CSS Variables Reset */
+        /* Premium Cyber Punk Design Tokens */
         :root {
-            --surface-deep: #08080a;
-            --surface-card: #121216;
-            --surface-inner: #181822;
-            --brand-glow: #ff2a5f;
-            --brand-cyber: #00f0ff;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
+            --surface-bg: #09090b;
+            --card-glass: rgba(18, 18, 24, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --brand-neon: #ff2a5f;
+            --cyber-cyan: #00f0ff;
+            --text-pure: #ffffff;
+            --text-dim: #a1a1aa;
         }
 
         * {
@@ -24,45 +24,89 @@
         }
 
         body {
-            background-color: var(--surface-deep);
-            color: var(--text-primary);
+            background-color: var(--surface-bg);
+            /* Deep atmospheric ambient background lighting */
+            background-image: 
+                radial-gradient(circle at 50% -10%, rgba(255, 42, 95, 0.15), transparent 60%),
+                radial-gradient(circle at 10% 90%, rgba(0, 240, 255, 0.04), transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-pure);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             padding: 16px;
+            overflow-x: hidden;
         }
 
         .master-container {
             width: 100%;
-            max-width: 450px;
+            max-width: 440px;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
             margin-bottom: 40px;
         }
 
-        /* Solid Base Card Layout */
+        /* Ultimate Glassmorphic Card Architecture */
         .mega-card {
-            background-color: var(--surface-card);
-            border: 2px solid #27272a;
-            border-radius: 28px;
+            background: var(--card-glass);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
             padding: 24px;
             position: relative;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            transition: border-color 0.3s ease;
         }
 
-        /* Feature 1: Neon Equalizer Aura & Profile */
+        .mega-card:hover {
+            border-color: rgba(255, 42, 95, 0.2);
+        }
+
+        /* NEW FEATURE: Blinking Live Broadcast Signal */
+        .live-status-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 42, 95, 0.1);
+            border: 1px solid rgba(255, 42, 95, 0.2);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--brand-neon);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .blink-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--brand-neon);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--brand-neon);
+            animation: coreBlink 1.5s infinite ease-in-out;
+        }
+
+        @keyframes coreBlink {
+            0%, 100% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 14px var(--brand-neon); }
+        }
+
+        /* Profile Elements */
         .profile-center {
             text-align: center;
-            padding: 16px 0;
+            padding: 12px 0;
         }
 
         .avatar-aura-wrapper {
             position: relative;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px auto;
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 16px auto;
         }
 
         .avatar-pulse {
@@ -72,59 +116,57 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: transparent;
-            border: 2px solid var(--brand-glow);
-            animation: pulseWave 2s infinite linear;
+            border: 2px solid var(--brand-neon);
+            animation: pulseWave 2.5s infinite cubic-bezier(0.25, 0, 0, 1);
         }
 
         .avatar-core {
             position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 90px;
-            height: 90px;
+            top: 4px;
+            left: 4px;
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
-            background-color: var(--surface-inner);
-            border: 3px solid var(--brand-glow);
+            background-color: #16161e;
+            border: 2px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 34px;
+            box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8);
         }
 
         @keyframes pulseWave {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1.2); opacity: 0; }
+            0% { transform: scale(0.95); opacity: 0.8; }
+            100% { transform: scale(1.25); opacity: 0; }
         }
 
         h1 {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             letter-spacing: -0.5px;
             margin-bottom: 6px;
-            background: linear-gradient(to right, #ffffff, #e4e4e7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .brand-sub {
-            font-size: 14px;
-            color: var(--text-secondary);
+            font-size: 13.5px;
+            color: var(--text-dim);
             margin-bottom: 24px;
+            line-height: 1.4;
         }
 
         .section-tag {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
-            color: var(--brand-glow);
-            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--brand-neon);
+            font-weight: 700;
             margin-bottom: 16px;
             text-align: left;
             display: block;
         }
 
-        /* Feature 2: High-Fidelity Video Component */
+        /* Media Player Core */
         .video-viewport {
             position: relative;
             width: 100%;
@@ -132,7 +174,7 @@
             background-color: #000000;
             border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #3f3f46;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .video-viewport iframe {
@@ -144,14 +186,14 @@
             border: none;
         }
 
-        /* Feature 3: Interactive Tracklist Matrix */
+        /* Playlist Matrix Component */
         .track-toggle-btn {
             width: 100%;
-            background: var(--surface-inner);
-            border: 1px solid #3f3f46;
-            padding: 12px;
-            border-radius: 12px;
-            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            padding: 14px;
+            border-radius: 14px;
+            color: var(--text-pure);
             font-weight: 600;
             font-size: 13px;
             margin-top: 14px;
@@ -163,51 +205,53 @@
 
         .tracklist-panel {
             display: none;
-            background: #0d0d12;
-            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 14px;
             margin-top: 8px;
-            padding: 12px;
+            padding: 14px;
             text-align: left;
-            border: 1px dashed #3f3f46;
+            border: 1px dashed var(--card-border);
         }
 
         .track-row {
             display: flex;
             justify-content: space-between;
             font-size: 13px;
-            padding: 8px 0;
-            border-bottom: 1px solid #1c1c24;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            color: #e4e4e7;
         }
 
         .track-row:last-child { border-bottom: none; }
-        .time-stamp { color: var(--brand-glow); font-weight: bold; }
+        .time-stamp { color: var(--brand-neon); font-weight: 600; }
 
-        /* Feature 4: Custom Digital Request Terminal */
+        /* Request Input Terminal */
         .terminal-input {
             width: 100%;
-            padding: 14px;
-            background-color: var(--surface-inner);
-            border: 1px solid #3f3f46;
-            border-radius: 12px;
+            padding: 16px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
             color: #ffffff;
             font-size: 14px;
             margin-bottom: 12px;
             outline: none;
+            transition: border-color 0.2s ease;
         }
 
         .terminal-input:focus {
-            border-color: var(--brand-cyber);
+            border-color: var(--cyber-cyan);
         }
 
-        /* Feature 5: Merch Engine Layout */
+        /* Merch Elements */
         .merch-deck {
             display: flex;
             gap: 12px;
         }
 
         .merch-vault-card {
-            background-color: var(--surface-inner);
-            border: 1px solid #27272a;
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
             border-radius: 16px;
             padding: 20px 12px;
             width: 50%;
@@ -215,23 +259,24 @@
         }
 
         .graphic-slot {
-            font-size: 32px;
-            margin-bottom: 12px;
+            font-size: 30px;
+            margin-bottom: 10px;
         }
 
         .lock-badge {
             display: inline-block;
-            font-size: 11px;
-            color: var(--text-secondary);
-            background-color: #27272a;
-            padding: 4px 12px;
+            font-size: 10px;
+            color: var(--text-dim);
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
             border-radius: 20px;
             font-weight: 600;
-            border: 1px solid #3f3f46;
+            border: 1px solid var(--card-border);
             margin-top: 8px;
+            letter-spacing: 0.5px;
         }
 
-        /* Action Buttons Grid */
+        /* Master Utility Buttons */
         .action-button {
             display: flex;
             align-items: center;
@@ -239,35 +284,41 @@
             width: 100%;
             padding: 16px;
             border-radius: 14px;
-            font-size: 15px;
+            font-size: 14.5px;
             font-weight: 700;
             text-decoration: none;
             cursor: pointer;
             border: none;
-            transition: background 0.2s ease;
+            transition: filter 0.2s ease, transform 0.1s ease;
+        }
+
+        .action-button:active {
+            transform: scale(0.99);
         }
 
         .btn-primary {
-            background-color: #ffffff;
-            color: #000000;
+            background-color: var(--text-pure);
+            color: #09090b;
         }
 
         .btn-cyber {
             background: transparent;
-            color: var(--brand-cyber);
-            border: 1px solid var(--brand-cyber);
+            color: var(--cyber-cyan);
+            border: 1px solid var(--cyber-cyan);
             margin-top: 4px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.03);
         }
 
         .btn-glow {
             background: transparent;
-            color: var(--brand-glow);
-            border: 1px solid var(--brand-glow);
+            color: var(--brand-neon);
+            border: 1px solid var(--brand-neon);
+            box-shadow: 0 0 15px rgba(255, 42, 95, 0.03);
         }
 
         .booking-desc {
-            font-size: 14px;
-            color: var(--text-secondary);
+            font-size: 13.5px;
+            color: var(--text-dim);
             line-height: 1.6;
             text-align: left;
             margin-bottom: 18px;
@@ -279,6 +330,11 @@
     <div class="master-container">
 
         <div class="mega-card profile-center">
+            <div class="live-status-bar">
+                <div class="blink-dot"></div>
+                <span>Broadcast Engine Live</span>
+            </div>
+            
             <div class="avatar-aura-wrapper">
                 <div class="avatar-pulse"></div>
                 <div class="avatar-core">🎧</div>
@@ -289,7 +345,7 @@
         </div>
 
         <div class="mega-card">
-            <span class="section-tag">Latest Heavyweight Mix</span>
+            <span class="section-tag">Featured Studio Mix</span>
             <div class="video-viewport">
                 <iframe src="https://www.youtube.com/embed/n7tvgMENYHI" allowfullscreen></iframe>
             </div>
@@ -308,33 +364,33 @@
         </div>
 
         <div class="mega-card">
-            <span class="section-tag">Direct Track Request Terminal</span>
-            <input type="text" id="songInput" class="terminal-input" placeholder="Enter song name artist...">
+            <span class="section-tag">Track Request Terminal</span>
+            <input type="text" id="songInput" class="terminal-input" placeholder="Type artist name or track title...">
             <button class="action-button btn-cyber" onclick="sendSongRequest()">Transmit Request to DJ</button>
         </div>
 
         <div class="mega-card">
-            <span class="section-tag">Brand Vault Merch Drop</span>
+            <span class="section-tag">Brand Vault Drop</span>
             <div class="merch-deck">
                 <div class="merch-vault-card">
                     <div class="graphic-slot">👕</div>
-                    <h4 style="font-size: 14px;">Brezzy Tee</h4>
-                    <span class="lock-badge">Vault Locked</span>
+                    <h4 style="font-size: 13.5px; font-weight: 600;">Brezzy Tee</h4>
+                    <span class="lock-badge">Vault Sealed</span>
                 </div>
                 <div class="merch-vault-card">
                     <div class="graphic-slot">🧥</div>
-                    <h4 style="font-size: 14px;">Hype Hoodie</h4>
-                    <span class="lock-badge">Vault Locked</span>
+                    <h4 style="font-size: 13.5px; font-weight: 600;">Hype Hoodie</h4>
+                    <span class="lock-badge">Vault Sealed</span>
                 </div>
             </div>
         </div>
 
         <div class="mega-card">
-            <span class="section-tag">Executive Bookings & Collabs</span>
+            <span class="section-tag">Bookings & Strategic Collabs</span>
             <p class="booking-desc">
-                Inquiries for premium live mixes, guest sets, track promotions, or creative commercial brand curation can be logged directly into the network.
+                Inquiries regarding corporate event bookings, club sets, underground track features, or brand collaborations can be officially logged right into the terminal network.
             </p>
-            <a href="mailto:oloostephan488@gmail.com?subject=Brezzy%20Decks%20-%20Executive%20Booking" class="action-button btn-glow">Initialize Email Correspondence</a>
+            <a href="mailto:oloostephan488@gmail.com?subject=Brezzy%20Decks%20-%20Executive%20Booking" class="action-button btn-glow">Initialize Email Routing</a>
         </div>
 
     </div>
@@ -355,7 +411,7 @@
         function sendSongRequest() {
             var song = document.getElementById("songInput").value;
             if(song.trim() === "") {
-                alert("Please type a track name first!");
+                alert("Please drop a track name first!");
                 return;
             }
             var encodedText = encodeURIComponent("Yo DJ Messi, check out this track request for the next mix: " + song);
@@ -363,4 +419,5 @@
         }
     </script>
 </body>
-</html>
+                    </html>
+                
