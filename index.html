@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brezzy On The Decks | Executive Hub</title>
+    <style>
+        /* Modern Solid CSS Variables Reset */
+        :root {
+            --surface-deep: #08080a;
+            --surface-card: #121216;
+            --surface-inner: #181822;
+            --brand-glow: #ff2a5f;
+            --brand-cyber: #00f0ff;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--surface-deep);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 16px;
+        }
+
+        .master-container {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        /* Solid Base Card Layout */
+        .mega-card {
+            background-color: var(--surface-card);
+            border: 2px solid #27272a;
+            border-radius: 28px;
+            padding: 24px;
+            position: relative;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Feature 1: Neon Equalizer Aura & Profile */
+        .profile-center {
+            text-align: center;
+            padding: 16px 0;
+        }
+
+        .avatar-aura-wrapper {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px auto;
+        }
+
+        .avatar-pulse {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid var(--brand-glow);
+            animation: pulseWave 2s infinite linear;
+        }
+
+        .avatar-core {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: var(--surface-inner);
+            border: 3px solid var(--brand-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+
+        @keyframes pulseWave {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.2); opacity: 0; }
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            background: linear-gradient(to right, #ffffff, #e4e4e7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-sub {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .section-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--brand-glow);
+            font-weight: 800;
+            margin-bottom: 16px;
+            text-align: left;
+            display: block;
+        }
+
+        /* Feature 2: High-Fidelity Video Component */
+        .video-viewport {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background-color: #000000;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #3f3f46;
+        }
+
+        .video-viewport iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Feature 3: Interactive Tracklist Matrix */
+        .track-toggle-btn {
+            width: 100%;
+            background: var(--surface-inner);
+            border: 1px solid #3f3f46;
+            padding: 12px;
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 14px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tracklist-panel {
+            display: none;
+            background: #0d0d12;
+            border-radius: 12px;
+            margin-top: 8px;
+            padding: 12px;
+            text-align: left;
+            border: 1px dashed #3f3f46;
+        }
+
+        .track-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            padding: 8px 0;
+            border-bottom: 1px solid #1c1c24;
+        }
+
+        .track-row:last-child { border-bottom: none; }
+        .time-stamp { color: var(--brand-glow); font-weight: bold; }
+
+        /* Feature 4: Custom Digital Request Terminal */
+        .terminal-input {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--surface-inner);
+            border: 1px solid #3f3f46;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 14px;
+            margin-bottom: 12px;
+            outline: none;
+        }
+
+        .terminal-input:focus {
+            border-color: var(--brand-cyber);
+        }
+
+        /* Feature 5: Merch Engine Layout */
+        .merch-deck {
+            display: flex;
+            gap: 12px;
+        }
+
+        .merch-vault-card {
+            background-color: var(--surface-inner);
+            border: 1px solid #27272a;
+            border-radius: 16px;
+            padding: 20px 12px;
+            width: 50%;
+            text-align: center;
+        }
+
+        .graphic-slot {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .lock-badge {
+            display: inline-block;
+            font-size: 11px;
+            color: var(--text-secondary);
+            background-color: #27272a;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            border: 1px solid #3f3f46;
+            margin-top: 8px;
+        }
+
+        /* Action Buttons Grid */
+        .action-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: background 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .btn-cyber {
+            background: transparent;
+            color: var(--brand-cyber);
+            border: 1px solid var(--brand-cyber);
+            margin-top: 4px;
+        }
+
+        .btn-glow {
+            background: transparent;
+            color: var(--brand-glow);
+            border: 1px solid var(--brand-glow);
+        }
+
+        .booking-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            text-align: left;
+            margin-bottom: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="master-container">
+
+        <div class="mega-card profile-center">
+            <div class="avatar-aura-wrapper">
+                <div class="avatar-pulse"></div>
+                <div class="avatar-core">🎧</div>
+            </div>
+            <h1>Brezzy On The Decks</h1>
+            <p class="brand-sub">DJ Messi &bull; Pure Trap, Hip-Hop & Local Heavyweights</p>
+            <a href="https://youtube.com/@DJMESSI-z4b?sub_confirmation=1" class="action-button btn-primary" target="_blank">Subscribe on YouTube</a>
+        </div>
+
+        <div class="mega-card">
+            <span class="section-tag">Latest Heavyweight Mix</span>
+            <div class="video-viewport">
+                <iframe src="https://www.youtube.com/embed/n7tvgMENYHI" allowfullscreen></iframe>
+            </div>
+            
+            <button class="track-toggle-btn" onclick="togglePlaylist()">
+                <span>View Full Tracklist Breakdown</span>
+                <span id="arrow-indicator">▼</span>
+            </button>
+            
+            <div class="tracklist-panel" id="playlist-matrix">
+                <div class="track-row"><span>1. Virusi Mbaya - Intro Mix</span><span class="time-stamp">00:00</span></div>
+                <div class="track-row"><span>2. Local Underground Trap Special</span><span class="time-stamp">04:15</span></div>
+                <div class="track-row"><span>3. Cyber Trap Instrumental Suite</span><span class="time-stamp">09:40</span></div>
+                <div class="track-row"><span>4. Nairobi Street Anthems Beat</span><span class="time-stamp">15:22</span></div>
+            </div>
+        </div>
+
+        <div class="mega-card">
+            <span class="section-tag">Direct Track Request Terminal</span>
+            <input type="text" id="songInput" class="terminal-input" placeholder="Enter song name artist...">
+            <button class="action-button btn-cyber" onclick="sendSongRequest()">Transmit Request to DJ</button>
+        </div>
+
+        <div class="mega-card">
+            <span class="section-tag">Brand Vault Merch Drop</span>
+            <div class="merch-deck">
+                <div class="merch-vault-card">
+                    <div class="graphic-slot">👕</div>
+                    <h4 style="font-size: 14px;">Brezzy Tee</h4>
+                    <span class="lock-badge">Vault Locked</span>
+                </div>
+                <div class="merch-vault-card">
+                    <div class="graphic-slot">🧥</div>
+                    <h4 style="font-size: 14px;">Hype Hoodie</h4>
+                    <span class="lock-badge">Vault Locked</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mega-card">
+            <span class="section-tag">Executive Bookings & Collabs</span>
+            <p class="booking-desc">
+                Inquiries for premium live mixes, guest sets, track promotions, or creative commercial brand curation can be logged directly into the network.
+            </p>
+            <a href="mailto:oloostephan488@gmail.com?subject=Brezzy%20Decks%20-%20Executive%20Booking" class="action-button btn-glow">Initialize Email Correspondence</a>
+        </div>
+
+    </div>
+
+    <script>
+        function togglePlaylist() {
+            var panel = document.getElementById("playlist-matrix");
+            var arrow = document.getElementById("arrow-indicator");
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+                arrow.innerHTML = "▼";
+            } else {
+                panel.style.display = "block";
+                arrow.innerHTML = "▲";
+            }
+        }
+
+        function sendSongRequest() {
+            var song = document.getElementById("songInput").value;
+            if(song.trim() === "") {
+                alert("Please type a track name first!");
+                return;
+            }
+            var encodedText = encodeURIComponent("Yo DJ Messi, check out this track request for the next mix: " + song);
+            window.open("https://wa.me/254117641510?text=" + encodedText, "_blank");
+        }
+    </script>
+</body>
+</html>
